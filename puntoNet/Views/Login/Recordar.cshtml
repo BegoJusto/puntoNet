@@ -1,0 +1,48 @@
+﻿@model GestionBibliotecaMVC.Models.Usuario
+@{
+    ViewBag.Title = "Recordar";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<!-- FORGOT PASSWORD FORM -->
+@using (Html.BeginForm("Recordar", "Login", FormMethod.Post)) {
+    <div class="text-center" style="padding:50px 0">
+        <div class="logo">Olvidaste tu contraseña</div>
+        <!-- Main Form-->
+        <div class="login-form-1">
+            <form id="forgot-password-form" class="text-left">
+                <div class="etc-login-form">
+                    <p>Mete el correo, donde se te restaurara la contraseña</p>
+                </div>
+                <div class="login-form-main-message"></div>
+                <div class="main-login-form">
+                    <div class="login-group">
+                        <div class="form-group">
+                            <label for="fp_email" class="sr-only">Email</label>
+                            @Html.EditorFor(model => model.Email, new {
+                       htmlAttribute = new {
+                           @class = "form-control"
+                       }
+                   })
+                            <!--<input type="text" class="form-control" id="fp_email" name="fp_email" placeholder="email address">-->
+                        </div>
+                    </div>
+                    <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+                </div>
+                <div class="etc-login-form">
+                    <p>¿Ya tienes una cuenta? @Html.ActionLink("Inicia sesión aqui", "Index", null, htmlAttributes: new {
+                                         @class = ""
+                                     })</p>
+                    <p>
+                        Usuario nuevo @Html.ActionLink("Pinche aqui", "Index", null, htmlAttributes: new {
+                                @class = ""
+                            })
+                    </p>
+                </div>
+            </form>
+        </div>
+        <!-- end:Main Form-->
+
+    </div>}
+
+

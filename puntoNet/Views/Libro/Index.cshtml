@@ -1,0 +1,36 @@
+﻿@model IList<GestionBibliotecaMVC.Models.Libro>
+@{
+    ViewBag.Title = "Listado de Libros";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+@ViewBag.Message
+
+<section>
+    @Html.ActionLink("Crear", "createUpdate", null, new {
+    @class = "btn btn-success"
+})
+    <header><h2>Libros</h2></header>
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-xs-4">
+            <table style="width:100%;">
+                <tr style="text-align:center;font-size:2em;">
+                    <td><label>Título</label></td>
+                    <td><label>Autor</label></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                @foreach (var item in Model) {
+                    <tr>
+                        <td>@item.Titulo</td>
+                        <td>@item.Autor.Nombre</td>
+                        <td>@Html.ActionLink("Editar", "createUpdate", new {codigo = @item.CodLibro}, htmlAttributes: new {@class = "btn btn-warning"})</td>
+                        <td>@Html.ActionLink("Borrar", "delete", new {codigo = @item.CodLibro}, htmlAttributes: new {@class = "btn btn-danger"})</td>
+                    </tr>
+                }                 
+                </table>
+            </div>            
+        </div>
+ </section>
+
+

@@ -9,12 +9,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{E2868EAE-8881-4C37-B477-C01A49F26D65}</ProjectGuid>
+    <ProjectGuid>{086FF0A5-23D0-4631-BD74-F8B71FCCEBB4}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>puntoNet</RootNamespace>
-    <AssemblyName>puntoNet</AssemblyName>
+    <RootNamespace>WcfBiblioteca</RootNamespace>
+    <AssemblyName>WcfBiblioteca</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -76,6 +77,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -94,10 +97,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -106,60 +105,20 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Global.asax" />
-    <Content Include="scripts\ai.0.22.19-build00125.js" />
-    <Content Include="scripts\ai.0.22.19-build00125.min.js" />
+    <Content Include="EjemplarService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BBLL\AutorServiceImp.cs" />
-    <Compile Include="BBLL\EditorialServiceImp.cs" />
-    <Compile Include="BBLL\EjemplarServiceImp.cs" />
-    <Compile Include="BBLL\FotoServiceImp.cs" />
-    <Compile Include="BBLL\interfaces\AutorService.cs" />
-    <Compile Include="BBLL\interfaces\EditorialService.cs" />
-    <Compile Include="BBLL\interfaces\EjemplarService.cs" />
-    <Compile Include="BBLL\interfaces\FotoService.cs" />
-    <Compile Include="BBLL\interfaces\LibroService.cs" />
-    <Compile Include="BBLL\interfaces\PrestamosService.cs" />
-    <Compile Include="BBLL\interfaces\UsuarioService.cs" />
-    <Compile Include="BBLL\LibroServiceImp.cs" />
-    <Compile Include="BBLL\PrestamosServiceImp.cs" />
-    <Compile Include="BBLL\UsuarioServiceImp.cs" />
-    <Compile Include="DAL\AutorRepositoryImp.cs" />
-    <Compile Include="DAL\EditorialRepositoryImp.cs" />
-    <Compile Include="DAL\EjemplarRepositoryImp.cs" />
-    <Compile Include="DAL\FotoRepositoryImp.cs" />
-    <Compile Include="DAL\interfaces\AutorRepository.cs" />
-    <Compile Include="DAL\interfaces\EditorialRepository.cs" />
-    <Compile Include="DAL\interfaces\EjemplarRepository.cs" />
-    <Compile Include="DAL\interfaces\FotoRepository.cs" />
-    <Compile Include="DAL\interfaces\LibroRespository.cs" />
-    <Compile Include="DAL\interfaces\PrestamosRepository.cs" />
-    <Compile Include="DAL\interfaces\UsuarioRepository.cs" />
-    <Compile Include="DAL\LibroRepositoryImp.cs" />
-    <Compile Include="DAL\PrestamosRepositoryImp.cs" />
-    <Compile Include="DAL\UsuarioRepositoryImp.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
+    <Compile Include="EjemplarService.svc.cs">
+      <DependentUpon>EjemplarService.svc</DependentUpon>
     </Compile>
-    <Compile Include="Models\Autor.cs" />
-    <Compile Include="Models\Editorial.cs" />
-    <Compile Include="Models\Ejemplar.cs" />
-    <Compile Include="Models\Foto.cs" />
-    <Compile Include="Models\Libro.cs" />
-    <Compile Include="Models\Login.cs" />
-    <Compile Include="Models\Prestamos.cs" />
-    <Compile Include="Models\Usuario.cs" />
+    <Compile Include="IEjemplarService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MyResources\MyResources.csproj">
-      <Project>{F3E57CE6-9CF5-407D-AA05-83459C0B4307}</Project>
-      <Name>MyResources</Name>
+    <ProjectReference Include="..\puntoNet\puntoNet.csproj">
+      <Project>{E2868EAE-8881-4C37-B477-C01A49F26D65}</Project>
+      <Name>puntoNet</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
@@ -175,9 +134,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>51050</DevelopmentServerPort>
+          <DevelopmentServerPort>51060</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:51050/</IISUrl>
+          <IISUrl>http://localhost:51060/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

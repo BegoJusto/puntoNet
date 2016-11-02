@@ -1,0 +1,43 @@
+﻿@using GestionBibliotecaMVC.Models
+@model IList<GestionBibliotecaMVC.Models.Libro>
+
+@{
+        ViewBag.Title = MyResources.Resources.Titulo;
+    ViewBag.SubTitle = MyResources.Resources.Titulo;
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<section>
+    <div class="container-fluid">
+        <header><h2>Listado de libros:</h2></header>
+    </div>
+    <br />
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4">
+                <h3>Titulo</h3>
+            </div>
+            <div class="col-lg-4">
+                <h3>Autor</h3>
+            </div>
+        </div>
+    </div>
+    @foreach (var items in Model) {
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4">
+                    @items.Titulo
+                </div>
+
+                <div class="col-lg-4">
+                    <label>Autor:</label> @items.Autor.Nombre
+                </div>
+                @if (Request.IsAuthenticated) {
+
+                    <div class="col-lg-4">
+                        @Html.ActionLink("Ver Ejemplares", "Index", "Ejemplar", new {codLibro = @items.CodLibro}, htmlAttributes : new {@class = "btn btn-info"})
+                    </div>}
+            </div>
+        </div>
+    }
+
+</section>

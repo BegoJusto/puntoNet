@@ -1,0 +1,64 @@
+﻿@model IList<GestionBibliotecaMVC.Models.Usuario>
+@{
+    ViewBag.Title = "Listado de Usuarios";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<section>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3">
+                <h3>Nombre y apellidos</h3>
+            </div>
+            <div class="col-lg-2">
+                <h3>Dni</h3>
+            </div>
+            <div class="col-lg-2">
+                <h3>F. Nacimiento</h3>
+            </div>
+            <div class="col-lg-3">
+                <h3>Email</h3>
+            </div>
+        </div>
+        <br />
+        @foreach (var item in Model) {
+            <div class="row">
+                <div class="col-lg-3">
+                    @item.Nombre @item.Apellidos
+                </div>
+                <div class="col-lg-2">
+                    @item.Dni
+                </div>
+                <div class="col-lg-2">
+                    @item.FNacimiento
+                </div>
+                <div class="col-lg-3">
+                    @item.Email
+                </div>
+                <div class="col-lg-2">
+                    @Html.ActionLink("Editar", "createUpdate", new {
+                   codUsuario = item.CodUsuario
+               }, new {
+                   @class = "btn btn-warning"
+               })
+                    @Html.ActionLink("Borrar", "Delete", new {
+                   codUsuario = item.CodUsuario
+               }, new {
+                   @class = "btn btn-danger"
+               })
+                </div>
+            </div>
+            <br />
+        }
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 pull-left">
+                @Html.ActionLink("Crear", "createUpdate", null, new {
+               @class = "btn btn-success"
+           })
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,146 @@
+﻿@model GestionBibliotecaMVC.Models.Usuario
+@{
+    ViewBag.Title = "Usuario";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<section>
+    @using (Html.BeginForm("save", "Usuario", FormMethod.Post)) {
+        @Html.ValidationSummary(true)
+        <div class="container-fluid">
+            @Html.HiddenFor(model => model.CodUsuario)
+            <div class="row">
+                <div class="col-lg-1">
+                    @Html.LabelFor(model => model.Nombre, htmlAttributes: new {
+                   @class = ""
+               })
+                </div>
+                <div class="col-lg-11">
+                    @Html.EditorFor(model => model.Nombre, new {
+                   htmlAttributes = new {
+                       @class = ""
+                   }
+               })
+                    @Html.ValidationMessageFor(model => model.Nombre, "", htmlAttributes: new {
+                   @class = ""
+               })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-1">
+                    @Html.LabelFor(model => model.Apellidos, htmlAttributes: new {
+                   @class = ""
+               })
+                </div>
+                <div class="col-lg-11">
+                    @Html.EditorFor(model => model.Apellidos, new {
+                   htmlAttributes = new {
+                       @class = ""
+                   }
+               })
+                    @Html.ValidationMessageFor(model => model.Apellidos, "", htmlAttributes: new {
+                   @class = ""
+               })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-1">
+                    @Html.LabelFor(model => model.Dni, htmlAttributes: new {
+                   @class = ""
+               })
+                </div>
+                <div class="col-lg-11">
+                    @Html.EditorFor(model => model.Dni, new {
+                   htmlAttributes = new {
+                       @class = ""
+                   }
+               })
+                    @Html.ValidationMessageFor(model => model.Dni, "", htmlAttributes: new {
+                   @class = ""
+               })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-1">
+                    @Html.LabelFor(model => model.FNacimiento, htmlAttributes: new {
+                   @class = ""
+               })
+                </div>
+                <div class="col-lg-11">
+                    @Html.EditorFor(model => model.FNacimiento
+               , new {
+                   htmlAttributes = new {
+                       placeholder = "dd/MM/yyyy"
+                   }
+               })
+                    @Html.ValidationMessageFor(model => model.FNacimiento, "", htmlAttributes: new {
+                   @class = ""
+               })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-1">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new {
+                   @class = ""
+               })
+                </div>
+                <div class="col-lg-11">
+                    @Html.EditorFor(model => model.Email, new {
+                   htmlAttributes = new {
+                       @class = ""
+                   }
+               })
+                    @Html.ValidationMessageFor(model => model.Email, "", htmlAttributes: new {
+                   @class = ""
+               })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-1">
+                    @Html.LabelFor(model => model.Alias, htmlAttributes: new {
+                   @class = ""
+               })
+                </div>
+                <div class="col-lg-11">
+                    @Html.EditorFor(model => model.Alias, new {
+                   htmlAttributes = new {
+                       @class = ""
+                   }
+               })
+                    @Html.ValidationMessageFor(model => model.Alias, "", htmlAttributes: new {
+                   @class = ""
+               })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-1">
+                    @Html.LabelFor(model => model.Pass, htmlAttributes: new {
+                   @class = ""
+               })
+                </div>
+                <div class="col-lg-11">
+                    @Html.EditorFor(model => model.Pass, new {
+                   htmlAttributes = new {
+                       @class = ""
+                   }
+               })
+                    @Html.ValidationMessageFor(model => model.Pass, "", htmlAttributes: new {
+                   @class = ""
+               })
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-lg-1">
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                </div>
+                <div class="col-lg-1">
+                    @Html.ActionLink("Cancelar", "Index", "", htmlAttributes: new {
+                   @class = "btn btn-danger"
+               })
+                </div>
+            </div>
+        </div>
+    }
+
+</section>

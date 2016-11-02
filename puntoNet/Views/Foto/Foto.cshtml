@@ -1,0 +1,56 @@
+﻿@model GestionBibliotecaMVC.Models.Foto
+@{
+
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<section>
+    @using (Html.BeginForm("save", "Foto", FormMethod.Post)) {
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.idFoto)
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4">
+                    @Html.LabelFor(model => model.nombre, htmlAttributes: new {
+                   @class = ""
+               })
+                    @Html.EditorFor(model => model.nombre, new {
+                   htmlAttributes = new {
+                       @class = ""
+                   }
+               })
+                    @Html.ValidationMessageFor(model => model.nombre, "", new {
+                   @class = ""
+               })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    @Html.LabelFor(model => model.imagen, htmlAttributes: new {
+                   @class = ""
+               })
+                    @Html.EditorFor(model => model.imagen, new {
+                   htmlAttributes = new {
+                       @class = ""
+                   }
+               })
+                    @Html.ValidationMessageFor(model => model.imagen, "", new {
+                   @class = ""
+               })
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-lg-1">
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                </div>
+                <div class="col-lg-1">
+                    @Html.ActionLink("Cancelar", "Index", "Home",null, htmlAttributes: new {
+                   @class = "btn btn-danger"
+               })
+                </div>
+            </div>
+        </div>
+    }
+</section>
+
