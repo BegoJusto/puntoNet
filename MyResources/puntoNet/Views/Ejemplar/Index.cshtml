@@ -1,0 +1,42 @@
+﻿@model IList<GestionBibliotecaMVC.Models.Ejemplar>
+@{
+    ViewBag.Title = "Listado de Ejemplares";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<section>
+    @if (User.IsInRole("Admin")) {
+        <div class="container-fluid">
+            @Html.ActionLink("Crear", "createUpdate", null, new {
+           @class = "btn btn-success"
+       })
+        </div>}
+    @if (Model.Count() > 0) {
+    <div class="container-fluid">
+        <div class="row">
+            <header><h2>Ejemplares:</h2></header>
+        </div>
+    </div>}
+    @foreach (var item in Model) { 
+        <div class="row">
+            <div class="col-lg-4">
+                <label>Titulo:</label> @item.Titulo
+                <label>ISBN:</label> @item.ISBN
+                <label>Nº paginas:</label> @item.NumPaginas
+                <label>F. Publicacion</label> @item.FPublicacion
+            </div>
+            @if (User.IsInRole("Admin")) {
+                <div class="col-lg-8">
+                    @Html.ActionLink("Borrar", "delete", new {
+              cod = @item.CodEjemplar
+          }, htmlAttributes: new {
+              @class = "btn btn-danger"
+          })
+                    @Html.ActionLink("Modificar", "createUpdate", new {
+              cod = @item.CodEjemplar
+          }, htmlAttributes: new {
+              @class = "btn btn-warning"
+          })
+                </div>}
+        </div>
+    }
+</section>

@@ -1,0 +1,68 @@
+﻿@model GestionBibliotecaMVC.Models.Prestamos
+@{
+    ViewBag.Title = "Prestamo";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+@using (Html.BeginForm("save", "Prestamo", FormMethod.Post)) {
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(Model => Model.CodPrestamo)
+    <div class="container-fluid">
+        <div class="row">
+            <div class="form-group">
+                <div class="col-lg-8">
+                    @Html.LabelFor(Model => Model.Ejemplar.Titulo, htmlAttributes: new {
+               @class = ""})
+                    @Html.DropDownList("codEjemplar", new SelectList (ViewBag.Ejemplares as System.Collections.IEnumerable, "codEjemplar", "nombre") );
+                    @Html.ValidationMessageFor(Model => Model.prestamos.Ejemplar.Titulo)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <div class="col-lg-8">
+                    @Html.LabelFor(Model => Model.Usuario.Nombre, htmlAttributes: new {
+               @class = ""
+           })
+                    @Html.EditorFor(Model => Model.Usuario.Nombre, new {
+               AllowHtmlAttribute = new {
+                   @class = ""
+               }
+           })
+                    @Html.ValidationMessageFor(Model => Model.Usuario.Nombre)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.FRecogida, htmlAttributes: new {
+               @class = ""
+           })
+                    @Html.EditorFor(Model => Model.FRecogida, new {
+               AllowHtmlAttribute = new {
+                   @class = ""
+               }
+           })
+                    @Html.ValidationMessageFor(Model => Model.FRecogida)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.FDevolucion, htmlAttributes: new {
+               @class = ""
+           })
+                    @Html.EditorFor(Model => Model.FDevolucion, new {
+               AllowHtmlAttribute = new {
+                   @class = ""
+               }
+           })
+                    @Html.ValidationMessageFor(Model => Model.FDevolucion)
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

@@ -1,14 +1,13 @@
-﻿using puntoNet.BBLL.interfaces;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using puntoNet.Models;
 using puntoNet.DAL;
 
-namespace puntoNet.BBLL {
-    public class EjemplarServiceImp : AutorService
+namespace ClienteWS.BBLL {
+    public class AutorServiceImp : AutorService
     {
         private AutorRepository aR;
 
-        public EjemplarServiceImp()
+        public AutorServiceImp()
         {
             aR = new AutorRepositoryImp();
         }

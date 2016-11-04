@@ -1,0 +1,58 @@
+﻿@model GestionBibliotecaMVC.Models.Usuario
+@{
+    ViewBag.Title = "Iniciar Sesion";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<!-- Where all the magic happens -->
+<!-- LOGIN FORM -->
+@using (Html.BeginForm("Login", "Login", FormMethod.Post)) {
+    <div class="text-center" style="padding:50px 0">
+        <div class="logo">Iniciar sesión</div>
+        <!-- Main Form -->
+        <div class="login-form-1">
+            <form id="login-form" class="text-left">
+                <div class="login-form-main-message"></div>
+                <div class="main-login-form">
+                    <div class="login-group">
+                        <div class="form-group">
+                            <label for="lg_username" class="sr-only">Alias</label>
+                            @Html.EditorFor(model => model.Alias, new {
+                       htmlAttributes = new {
+                           @class = "form-control", placeholder = "Usuario"
+                       }
+                   })
+                            <!--<input type="text" class="form-control" id="lg_username" name="lg_username" placeholder="Nombre de usuario">-->
+                        </div>
+                        <div class="form-group">
+                            <label for="lg_password" class="sr-only">Contraseña</label>
+                            @Html.PasswordFor(model => model.Pass, new {
+                        htmlAttributes = new {
+                            @class = "form-control", placeholder = "Contraseña"
+                        }
+                    })
+                            <!--<input type="password" class="form-control" id="lg_password" name="lg_password" placeholder="password">-->
+                        </div>
+                        <div class="form-group login-group-checkbox">
+                            <input type="checkbox" id="lg_remember" name="lg_remember">
+                            <label for="lg_remember">Recordar</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+                </div>
+                <div class="etc-login-form">
+                    <p>
+                        ¿Olvidaste la contraseña? @Html.ActionLink("Pincha aquí", "Recordar", null, htmlAttributes: new {
+                                            @class = ""
+                                        })
+                    </p>
+                    <p>
+                        Nuevo usuario @Html.ActionLink("Pincha aquí", "Registrar", null, htmlAttributes: new {
+                                @class = ""
+                            })
+                    </p>
+                </div>
+            </form>
+        </div>
+        <!-- end:Main Form -->
+    </div>}

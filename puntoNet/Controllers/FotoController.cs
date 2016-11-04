@@ -1,13 +1,10 @@
-﻿using GestionBibliotecaMVC.BBLL.interfaces;
-using GestionBibliotecaMVC.Models;
-using System;
+﻿using puntoNet.BBLL.interfaces;
+using puntoNet.Models;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
-namespace GestionBibliotecaMVC.Controllers
-{
+namespace ClienteWS.Controllers {
     public class FotoController : Controller
     {
         private FotoService FotoServiceImp;

@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="puntoNet.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="ClienteWS.MvcApplication" Language="C#" %>

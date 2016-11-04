@@ -1,0 +1,42 @@
+﻿
+@model GestionBibliotecaMVC.Models.Autor
+@{
+
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<section>
+    @using (Html.BeginForm("save", "Autor", FormMethod.Post)) {
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.CodAutor)
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4">
+                    @Html.LabelFor(model => model.Nombre, htmlAttributes: new {
+               @class = ""
+           })
+                    @Html.EditorFor(model => model.Nombre, new {
+               htmlAttributes = new {
+                   @class = ""
+               }
+           })
+                    @Html.ValidationMessageFor(model => model.Nombre, "", new {
+               @class = ""
+           })
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-lg-1">
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                </div>
+                <div class="col-lg-1">
+                    @Html.ActionLink("Cancelar", "Index", null, htmlAttributes: new {
+               @class = "btn btn-danger"
+           })
+                </div>
+            </div>
+        </div>
+    }
+</section>
+

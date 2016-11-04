@@ -1,13 +1,13 @@
-﻿using GestionBibliotecaMVC.BBLL;
-using GestionBibliotecaMVC.BBLL.interfaces;
-using GestionBibliotecaMVC.Models;
+﻿using ClienteWS.BBLL;
+using ClienteWS.BBLL.interfaces;
+using ClienteWS.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace GestionBibliotecaMVC.Controllers
+namespace ClienteWS.Controllers
 {
     public class PrestamoController : Controller
     { 

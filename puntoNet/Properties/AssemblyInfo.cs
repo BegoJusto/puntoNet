@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("puntoNet")]
+[assembly: AssemblyTitle("ClienteWS")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("puntoNet")]
+[assembly: AssemblyProduct("ClienteWS")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e2868eae-8881-4c37-b477-c01a49f26d65")]
+[assembly: Guid("213618bc-f2af-41d4-8371-4b6b4fcf9f1a")]
 
 // Version information for an assembly consists of the following four values:
 //

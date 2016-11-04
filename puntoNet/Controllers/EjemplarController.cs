@@ -1,14 +1,9 @@
-﻿using gestionbibliotecaMVC.BBLL.interfaces;
-using GestionBibliotecaMVC.BBLL;
-using GestionBibliotecaMVC.Models;
-using System;
+﻿using puntoNet.BBLL.interfaces;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
-namespace GestionBibliotecaMVC.Controllers
-{
+namespace ClienteWS.Controllers {
     public class EjemplarController : Controller
     {
         private EjemplarService es;

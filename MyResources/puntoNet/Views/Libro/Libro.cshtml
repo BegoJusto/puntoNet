@@ -1,0 +1,41 @@
+﻿@model GestionBibliotecaMVC.Models.Libro
+@{
+
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+@using (Html.BeginForm("save", "Libro", FormMethod.Post, new {
+    @class = "form-horizontal col-xs-12"
+})) {
+    @Html.ValidationSummary(true, "", new {
+       @class = "text-danger"
+   })
+
+
+    @Html.HiddenFor(m => Model.CodLibro)
+    @Html.HiddenFor(m => Model.Autor.CodAutor)
+
+    <div class="form-group">
+        @Html.LabelFor(m => Model.Titulo, htmlAttributes: new {
+           @class = ""
+       })
+        @Html.EditorFor(m => Model.Titulo, new {
+           htmlAttributes = new {
+               @class = ""
+           }
+       })
+        @Html.ValidationMessageFor(m => Model.Titulo, "", new {
+           @class = ""
+       })
+    </div>
+    <div class="form-group">
+        
+        @Html.DropDownListFor(m => Model.Autor, new SelectList(ViewBag.AutorList as System.Collections.IEnumerable, "CodAutor", "Nombre", Model.Autor.CodAutor), new {
+       @class = "form-control"
+   })
+        @Html.ValidationMessageFor(m => Model.Autor.CodAutor)
+    </div>
+        
+        <div class="form-group">
+            <button type="submit" class="btn btn-info">Guardar</button>
+        </div>
+}

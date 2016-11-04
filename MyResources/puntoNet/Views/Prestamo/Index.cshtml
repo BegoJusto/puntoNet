@@ -1,0 +1,28 @@
+﻿@model IList<GestionBibliotecaMVC.Models.Prestamos>
+@{
+    ViewBag.Title = "Listado de prestamos";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<section>
+    @Html.ActionLink("Crear", "createUpdate", null, new {@class = "btn btn-success"})
+    @foreach (var item in Model) 
+    {
+        <header><h2>Prestamos:</h2></header>
+        <div class="row">
+            <div class="col-lg-8">
+                <label>Titulo:</label>@item.Ejemplar.Titulo
+                <label>F. Recodiga</label>@item.FRecogida
+                <label>F. Devolución</label>@item.FDevolucion
+                <label>Usuario</label>@item.Usuario.Nombre
+            </div>
+            <div class="col-lg-2">
+                @Html.ActionLink("Borrar", "delete", new {@class="btn btn-danger"})
+            </div>
+            <div class="col-lg-2">
+                @Html.ActionLink("Modificar","createUpdate", new {@class="btn btn-warning"})
+            </div>
+        </div>
+    }
+
+</section>

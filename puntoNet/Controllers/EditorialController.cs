@@ -1,13 +1,11 @@
-﻿using GestionBibliotecaMVC.BBLL;
-using GestionBibliotecaMVC.Models;
+﻿using puntoNet.BBLL;
+using puntoNet.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
-namespace GestionBibliotecaMVC.Controllers
-{
+namespace ClienteWS.Controllers {
     [Authorize(Roles = "Admin")]
     public class EditorialController : Controller
     {
